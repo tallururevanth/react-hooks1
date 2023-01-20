@@ -6,7 +6,9 @@ import DoubleInput from "./components/DoubleInputUsingHooks";
 export default function App() {
   return (
     <div>
-      {/* <SingleInput/> */}
+      <h1>Single Input</h1>
+      <SingleInput/>
+      <h1>Double Input</h1>
       <DoubleInput/>
     </div>
   );
