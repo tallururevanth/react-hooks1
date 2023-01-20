@@ -13,23 +13,43 @@ const DoubleInput = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("refresh prevented");
-  }
+    console.log('refresh prevented');
+  };
   return (
     <>
-    <form onSubmit={handleSubmit}>
-        <lable>Name:</lable><input id="namevalue" type="text" onChange={changeA}/>
-        <label>Age:</label><input id="agevalue" type="text" onChange={changeB}/><br/><br/>
+      <form id="form2" onSubmit={handleSubmit}>
+        {/* <lable>Name:</lable> */}
+        <input
+          id="namevalue"
+          placeholder="Name"
+          type="text"
+          onChange={changeA}
+        />
+        {/* <label>Age:</label> */}
+        <input id="agevalue" placeholder="Age" type="text" onChange={changeB} />
+        <br />
+        <br />
         <button
           onClick={() => {
-            addA([...a, x]);
-            addB([...b, y]);
-            document.getElementById('namevalue').value = '';
-            document.getElementById('agevalue').value = '';
-          }}>Update</button>
-          <br/>
-          <br/>
-    </form>
+            if (
+              document.forms['form2']['namevalue'].value == '' ||
+              document.forms['form2']['agevalue'].value == '' ||
+              document.forms['form2']['agevalue'].value == 0
+            ) {
+              alert('Please fill the requireed fields');
+            } else {
+              addA([...a, x]);
+              addB([...b, y]);
+              document.getElementById('namevalue').value = '';
+              document.getElementById('agevalue').value = '';
+            }
+          }}
+        >
+          Update
+        </button>
+        <br />
+        <br />
+      </form>
       <table border="1 px">
         <tr>
           <th>Name</th>
