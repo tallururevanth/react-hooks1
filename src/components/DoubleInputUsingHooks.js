@@ -11,8 +11,13 @@ const DoubleInput = () => {
   const changeB = (a) => {
     addY(a.target.value);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("refresh prevented");
+  }
   return (
     <>
+    <form onSubmit={handleSubmit}>
         <lable>Name:</lable><input id="namevalue" type="text" onChange={changeA}/>
         <label>Age:</label><input id="agevalue" type="text" onChange={changeB}/><br/><br/>
         <button
@@ -24,7 +29,7 @@ const DoubleInput = () => {
           }}>Update</button>
           <br/>
           <br/>
-
+    </form>
       <table border="1 px">
         <tr>
           <th>Name</th>

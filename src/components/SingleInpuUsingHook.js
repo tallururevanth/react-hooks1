@@ -6,13 +6,17 @@ const SingleInput = () => {
   const change = (e) => {
     y(e.target.value);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("refresh prevented");
+  }
 
   return (
     <>
-      <form onsubmit="yourJsFunction();return false">
+      <form action="" onSubmit={handleSubmit}>
         <label>Text:</label>
         <input id="inputv" type="text" onChange={change} />
-        <button
+        <button type="submit"
           onClick={() => {
             x([...a, b]);
             document.getElementById('inputv').value = '';
