@@ -26,7 +26,7 @@ const DoubleInput = () => {
           onChange={changeA}
         />
         {/* <label>Age:</label> */}
-        <input id="agevalue" placeholder="Age" type="text" onChange={changeB} />
+        <input id="agevalue" placeholder="Age" type="text" pattern="[0-9]" onChange={changeB} />
         <br />
         <br />
         <button
@@ -37,7 +37,11 @@ const DoubleInput = () => {
               document.forms['form2']['agevalue'].value == 0
             ) {
               alert('Please fill the requireed fields');
-            } else {
+            }
+            else if (isNaN(document.forms['form2']['agevalue'].value)){
+              alert("Please fill age in Numbers only.")
+            }
+            else {
               addA([...a, x]);
               addB([...b, y]);
               document.getElementById('namevalue').value = '';
